@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang 💖</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="snow snow-slow"></div>
+<div class="snow snow-medium"></div>
+<div class="snow snow-fast"></div>
+
+<div class="container">
+    <div class="isi_cont">
+        <h1 class="typing-text">Happy Birthday Sayangku ♡</h1>
+        <h6 class="typing-text small-text">Ke-25 Tahun!!!</h6>
+
+        <p>Klik Doraemonnya</p>
+
+        <a href="isi/isi.html" class="open_button">
+            <img src="foto/open_button.png" alt="Doraemon">
+        </a>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll(".typing-text").forEach(textElement => {
+    const originalHTML = textElement.innerHTML;
+    let chars = [];
+    let buffer = "";
+
+    for (let i = 0; i < originalHTML.length; i++) {
+        if (originalHTML[i] === "<") {
+            buffer = "";
+            while (originalHTML[i] !== ">") {
+                buffer += originalHTML[i];
+                i++;
+            }
+            buffer += ">";
+            chars.push(buffer);
+        } else {
+            chars.push(originalHTML[i]);
+        }
+    }
+
+    textElement.innerHTML = chars.map(c => {
+        if (c.startsWith("<")) return c;
+        if (c === " ") return "&nbsp;";
+        return `<span class="char">${c}</span>`;
+    }).join("");
+
+    const spans = [...textElement.querySelectorAll(".char")];
+    spans.sort(() => Math.random() - 0.5);
+
+    spans.forEach((span, index) => {
+        setTimeout(() => {
+            span.classList.add("show");
+        }, index * 200);
+    });
+});
+</script>
+
+</body>
+</html>
