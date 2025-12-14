@@ -1,0 +1,69 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    height:100vh;
+    font-family:"Sofia",sans-serif;
+    background:radial-gradient(circle at bottom,#0b1a2a,#050b14 70%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:#eaf4ff;
+}
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center, rgba(180,220,255,.05), transparent 60%);
+}
+
+.flower-wrap{
+    text-align:center;
+    z-index:2;
+    position:relative;
+}
+
+#flowerSVG{
+    cursor:pointer;
+    transform:scale(0.8);
+    transition:transform 1s ease;
+    filter:drop-shadow(0 0 10px #a2d5f2);
+}
+
+#flowerSVG.open{
+    transform:scale(1);
+}
+
+.word{
+    margin-top:1.4rem;
+    font-size:0.9rem;
+    opacity:.8;
+    transition:.6s ease;
+    line-height:1.5;
+}
+
+#backBtn{
+    margin-top:1rem;
+    padding:0.4rem 0.9rem;
+    border:none;
+    border-radius:20px;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    font-size:0.8rem;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+#backBtn:hover{
+    background:rgba(255,255,255,.25);
+}
+
+/* Animasi confetti kelopak */
+@keyframes flyDust{
+    0%{transform:translate(0,0) rotate(0deg); opacity:1; filter:blur(0px);}
+    100%{
+        transform:translate(var(--x),var(--y)) rotate(var(--r)deg);
+        opacity:0;
+        filter:blur(1.5px) drop-shadow(0 0 5px #a2d5f2);
+    }
+}

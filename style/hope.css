@@ -1,0 +1,54 @@
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{
+    font-family:"Sofia",sans-serif;
+    background:radial-gradient(circle at bottom,#111,#000 70%);
+    overflow:hidden;color:#fff
+}
+
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-repeat: repeat;
+}
+
+/* SLOW SNOW */
+.snow-slow {
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 120px 160px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 220px 80px, #fff, transparent);
+    background-size: 350px 350px;
+    animation: snow-fall 30s linear infinite;
+    opacity: 0.6;
+}
+
+/* MEDIUM SNOW */
+.snow-medium {
+    background-image:
+        radial-gradient(1px 1px at 60px 90px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 180px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 260px 200px, #fff, transparent);
+    background-size: 300px 300px;
+    animation: snow-fall 20s linear infinite;
+    opacity: 0.8;
+}
+
+/* FAST SNOW */
+.snow-fast {
+    background-image:
+        radial-gradient(1px 1px at 40px 20px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 140px 120px, #fff, transparent),
+        radial-gradient(1px 1px at 280px 60px, #fff, transparent);
+    background-size: 220px 220px;
+    animation: snow-fall 16s linear infinite;
+    opacity: 1;
+}
+
+@keyframes snow-fall {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(100%); }
+}
